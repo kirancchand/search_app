@@ -192,7 +192,7 @@ class DataSearch extends SearchDelegate<String>{
     "San Marino", "Serbia", "Slovakia", "Slovenia", "Spain", "Sweden",
     "Switzerland", "Turkey", "Ukraine", "United Kingdom", "Vatican City"];
   
-  final recentCities = ["Albania", "Andorra", "Armenia"];
+  final recentCities = ["Albania", "Andorra"];
 
   @override
   List<Widget> buildActions(BuildContext context)
@@ -225,47 +225,7 @@ class DataSearch extends SearchDelegate<String>{
   @override
   Widget buildSuggestions(BuildContext context)
   {
-   /* Future<List<User>> _getUsers() async{
-      final String url="http://www.mocky.io/v2/5d13b91c0e000041c8b4a782";
-      var data=await http.get(url);
-      var jsonData=json.decode(data.body);
-      List<User> users = [];
-      for (var u in jsonData)
-      {
-        User user=User(u["id"],u["name"],u["houseno"],u["phoneno"]);
-        users.add(user);
-      }
-      print(users.length);
-      return users;
-    }
-
-
-    return Container(
-          child: FutureBuilder(
-            future: _getUsers(),
-            builder: (BuildContext context , AsyncSnapshot snapshot){
-              if(snapshot.data==null){
-                return Container(
-                  child:Center(
-                    child:Text("Loading.."))
-                );
-              }
-              else{
-                return ListView.builder(
-                  itemCount: snapshot.data.length,
-                  itemBuilder: (BuildContext context,int index){
-                    return ListTile(
-                      title: Text(snapshot.data[index].name),
-                      subtitle: Text(snapshot.data[index].houseno),
-                      onTap: () => launch("tel://"+snapshot.data[index].phoneno),
-                    );
-                  },
-                );
-              }
-            },
-            ),
-
-    );*/
+    
 
     final suggestionList= query.isEmpty ? recentCities : cities.where((p)=>p.toUpperCase().startsWith(query.toUpperCase())).toList();
 //.where((p) => p.contains(query)).toList();
